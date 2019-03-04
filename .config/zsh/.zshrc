@@ -23,18 +23,18 @@ zstyle :compinstall filename '/home/steve/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+
 HISTFILE=~/.zhistfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory autocd
+
 unsetopt beep notify
+
+# start the line editor in vi mode
 bindkey -v
-# End of lines configured by zsh-newuser-install
 
 unsetopt notify
 
 PS1="[%n@%m:%~]
 %D{%Y-%m-%d_%T_%Z}/%0(?.%h.%F{red}%h%f)%# "
-
