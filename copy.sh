@@ -1,2 +1,2 @@
-cp -R ./.zshenv ~
-cp -R ./.config/zsh ~/.config/
+cp -f ./.zshenv ~
+cp -R -f ./.config/zsh ~/.config/
