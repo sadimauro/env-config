@@ -32,3 +32,9 @@ setopt appendhistory autocd
 unsetopt beep notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+unsetopt notify
+
+PS1="[%n@%m:%~]
+%D{%Y-%m-%d_%T_%Z}/%0(?.%h.%F{red}%h%f)%# "
+
