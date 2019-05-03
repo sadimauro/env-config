@@ -2,7 +2,6 @@
 #  autoload -Uz zsh-newuser-install
 #  zsh-newuser-install -f
 
-# The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' completions 1
@@ -24,17 +23,48 @@ zstyle :compinstall filename '/home/steve/.zshrc'
 autoload -Uz compinit
 compinit
 
+
+# try to perform simple correction of commands
+setopt correct
+
+
+#
+# History
+#
 HISTFILE=~/.zhistfile
 HISTSIZE=10000
 SAVEHIST=10000
-setopt appendhistory autocd
+setopt appendhistory
+# each shell adds a line to the history file when that line is executed
+setopt incappendhistory
+# current shell gets new history lines from other shells
+setopt sharehistory
+# add time and duration to each line in the history
+setopt extendedhistory
+# don't store consecutive dups in the history file
+setopt histignoredups
+# clean up excess blanks per line
+setopt histreduceblanks
+# lines that start with a space don't get written to the history
+setopt histignorespace
 
-unsetopt beep notify
+
+# don't beep
+unsetopt beep
+# ?
+unsetopt notify
 
 # start the line editor in vi mode
 bindkey -v
 
-unsetopt notify
+# Define the prompt
+PS1="%{%F{green}%}[%n@%m:%~]
+%D{%Y-%m-%d_%T_%Z}/%0(?.%h.%{%F{red}%}%h%{%f%})%#%{%f%} "
 
-PS1="[%n@%m:%~]
-%D{%Y-%m-%d_%T_%Z}/%0(?.%h.%F{red}%h%f)%# "
+# typing just a dir cd's to that dir
+setopt autocd
+
+# Add ~/.local/bin to PATH, which is where many pip-installed binaries land.
+path=('/home/steve/.local/bin' $path)
+export PATH
+
