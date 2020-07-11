@@ -1,0 +1,10 @@
+[user]
+	name = sadimauro
+	email = sadimauro@gmail.com
+[core]
+	editor = vim
+[alias]
+	pom = push origin master
+	cma = commit -a -m
+[credential]
+	username = sadimauro
