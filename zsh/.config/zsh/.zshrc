@@ -68,3 +68,6 @@ setopt autocd
 path=('/home/steve/.local/bin' $path)
 export PATH
 
+
+# Python exports
+export PYTHONBREAKPOINT="ipdb.set_trace"
